@@ -5,9 +5,9 @@ const UserPicker = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const { setFavoriteUser } = useFavoriteUser();
-  const [selectedUser, setSelectedUser] = useState(null); // Track selected user
+  const [selectedUser, setSelectedUser] = useState(null); 
 
-  // Fetch user list from the API
+  
   useEffect(() => {
     const fetchUsers = async () => {
       const response = await fetch('https://jsonplaceholder.typicode.com/users');
@@ -19,7 +19,6 @@ const UserPicker = () => {
   }, []);
 
   const handleUserClick = (user) => {
-    // Set the selected user as the favorite user
     setSelectedUser(user);
   };
 
@@ -31,18 +30,18 @@ const UserPicker = () => {
   };
 
   return (
-    <div className="text-center min-h-screen bg-gradient-to-b from-purple-700 to-purple-900 p-8">
+    <div className="text-center min-h-screen bg-gradient-to-b from-purple-700 to-purple-900 p-4">
       {loading ? (
         <p className="text-lg text-gray-500">Loading...</p>
       ) : (
         <div>
           <h2 className="text-3xl font-bold text-white mb-8">Pick your favorite user</h2>
           
-          {/* Form for user selection */}
+          
           <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-xl max-w-md mx-auto">
             <h3 className="text-xl mb-4 text-center font-semibold text-purple-800">Select Your Favorite User</h3>
 
-            {/* User list with form */}
+            
             <ul className="space-y-4">
               {users.map(user => (
                 <li
@@ -65,13 +64,13 @@ const UserPicker = () => {
               ))}
             </ul>
 
-            {/* Submit button */}
+            
             <div className="mt-4">
               <button
                 type="submit"
                 className={`w-full py-2 px-4 rounded-lg text-white font-semibold 
                 ${selectedUser ? 'bg-purple-600 hover:bg-purple-700' : 'bg-gray-400 cursor-not-allowed'}`}
-                disabled={!selectedUser} // Disable button if no user is selected
+                disabled={!selectedUser} 
               >
                 Confirm Favorite User
               </button>

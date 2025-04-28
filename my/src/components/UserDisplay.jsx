@@ -4,10 +4,10 @@ import { useFavoriteUser } from './FavoriteUserContext';
 const UserDisplay = () => {
   const { favoriteUser } = useFavoriteUser();
 
-  // Function to clear the favorite user from localStorage
+  
   const handleClearFavorite = () => {
     localStorage.removeItem('favoriteUser');
-    window.location.reload(); // Refresh to reset the state
+    window.location.reload(); 
   };
 
   return (
@@ -19,7 +19,7 @@ const UserDisplay = () => {
             <span className="font-semibold">{favoriteUser.name}</span> (
             {favoriteUser.email})
           </p>
-          {/* Clear Favorite Button */}
+          
           <button
             onClick={handleClearFavorite}
             className="bg-red-500 text-white py-2 px-4 rounded-full hover:bg-red-600 transition duration-200"
